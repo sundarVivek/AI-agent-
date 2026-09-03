@@ -54,7 +54,7 @@ export class LoginComponent {
     this.errorMessage = '';
     const { email, password, rememberMe } = this.loginForm.getRawValue();
 
-    this.authService.login({ email: email!, password: password!, rememberMe: !!rememberMe }).subscribe({
+    this.authService.login({ email: email!.trim(), password: password!, rememberMe: !!rememberMe }).subscribe({
       next: () => {
         this.loading = false;
         void this.router.navigate(['/dashboard']);
